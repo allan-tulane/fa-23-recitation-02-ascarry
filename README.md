@@ -41,11 +41,27 @@ where $W(1) = 1$.
 - [ ] 4. (2 point) Now, derive the asymptotic behavior of $W(n)$ using $f(n) = 1$, $f(n) = \log n$ and $f(n) = n$. Then, generate actual values for $W(n)$ for your code and confirm that the trends match your derivations.
 
 **TODO: your answer goes here**
+The aymptotic behavior of W(n) for f(n) = 1 is O(n).
+For f(n) = n, it's O(n*logn)
+For f(n) = log(n), it's O((log(n))^2)
+When n = 10, a = 2, and b = 2, W(n) behavior is: 
+for f(n)=1: 255.0
+for f(n)=n: 267.8561237010027
+for f(n)=log(n): 828.0
+Thes results do match the above logic.
 
 - [ ] 5. (4 points) Now that you have a nice way to empirically generate valuess of $W(n)$, we can look at the relationship between $a$, $b$, and $f(n)$. Suppose that $f(n) = n^c$. What is the asypmptotic behavior of $W(n)$ if $c < \log_b a$? What about $c > \log_b a$? And if they are equal? Modify `compare_work` to compare empirical values for different work functions (at several different values of $n$) to justify your answer. 
 
 **TODO: your answer goes here**
+For the asymptotic behavior of W(n) if c < log_ba, the program will take less time to run and require less work as the input size increases because the number of operations increases at a greater rate than the work function. The number of operations grows at O(n^log_b a) and the work function grows at O(n^c), meaning the overall behavior is O(n^(logb a)). 
+For c > log_ba, it will take longer to finish because it is the opposite of c < log_ba, so the work function grows quicker than the number of operations. The number of operations increases with O(n^log_b a) and the work function with O(n^c), so the behavior is O(n^c).
+For if they are equal, the number of operations and work functon will increase at the same rate, so the behavior of W(n) will be O(n^c) = (n^log_b a).
+These patterns are seen when running the code. For example, when the variable c is small, the result would be signtificantly smaller than if c were a significantly large number.
 
 - [ ] 6. (3 points) $W(n)$ is meant to represent the running time of some recursive algorithm. Suppose we always had $a$ processors available to us and we wanted to compute the span of the same algorithm. Implement the function `span_calc` to compute the empirical span, where the work of the algorithm is given by $W(n)$. Implement `test_compare_span` to create a new comparison function for comparing span functions. Derive the asymptotic expressions for the span of the recurrences you used in problem 4 above. Confirm that everything matches up as it should. 
 
 **TODO: your answer goes here**
+When n = 10, a = 2, and b = 2:
+for f(n)=1: 128.0
+for f(n)=n: 136.2306469434954
+for f(n)=log(n): 464.0
