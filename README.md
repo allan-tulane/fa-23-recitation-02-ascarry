@@ -61,7 +61,9 @@ These patterns are seen when running the code. For example, when the variable c 
 - [ ] 6. (3 points) $W(n)$ is meant to represent the running time of some recursive algorithm. Suppose we always had $a$ processors available to us and we wanted to compute the span of the same algorithm. Implement the function `span_calc` to compute the empirical span, where the work of the algorithm is given by $W(n)$. Implement `test_compare_span` to create a new comparison function for comparing span functions. Derive the asymptotic expressions for the span of the recurrences you used in problem 4 above. Confirm that everything matches up as it should. 
 
 **TODO: your answer goes here**
+Using same implementation as question 4:
 When n = 10, a = 2, and b = 2:
 for f(n)=1: 128.0
 for f(n)=n: 136.2306469434954
 for f(n)=log(n): 464.0
+
